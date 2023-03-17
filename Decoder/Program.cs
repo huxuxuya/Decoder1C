@@ -16,6 +16,7 @@ internal class Program
         private static void Main(string[] args)
         {
 
+
             var fileMask = @"Module.bin";
             var fileArray = ExpandFilePaths(args, fileMask);
             var DeleteBin = true;
@@ -65,15 +66,18 @@ internal class Program
 
         foreach (var arg in args)
         {
+            Console.WriteLine(" arg - " + arg);
+
             var substitutedArg = System.Environment.ExpandEnvironmentVariables(arg);
 
             var dirPart = Path.GetDirectoryName(substitutedArg);
             if (dirPart.Length == 0)
                 dirPart = ".";
 
-            //var filePart = Path.GetFileName(substitutedArg);
+                //var filePart = Path.GetFileName(substitutedArg);
+                Console.WriteLine(" find " + filePart + " in " + dirPart);
 
-            foreach (var filepath in Directory.GetFiles(dirPart, filePart, SearchOption.AllDirectories))
+                foreach (var filepath in Directory.GetFiles(dirPart, filePart, SearchOption.AllDirectories))
                 fileList.Add(filepath);
         }
 

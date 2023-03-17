@@ -22,17 +22,20 @@ internal class Program
         {
             Console.WriteLine(filePath);
 
+            var filteredFile = filePath.Replace("bin", "txt");
             var content = string.Empty;
             var reader = new StreamReader(filePath);
             content = reader.ReadToEnd();
             reader.Close();
+
+             
 
             string MatchPhrase = @"{1.*\n^{.Cmd.*$\n^{\d*,\d*},[\s|.|\S]+}.*$\n}.*$\n}";
             Match match = Regex.Match(content, MatchPhrase, RegexOptions.Multiline);
             if (match.Success)
             {
                 content = match.Value;
-                var filteredFile = filePath.Replace("bin", "txt");
+                
                 var writer = new StreamWriter(filteredFile);
                 writer.Write(content);
                 writer.Close();
@@ -41,15 +44,18 @@ internal class Program
                 {
                    
                     Console.WriteLine(filePath + " - Done");
-                }
+                    var bslFile = filePath.Replace("bin", "bsl");
+
+                    DecompileFile(filteredFile, bslFile);
+                    }
                 catch
                 {
                     Console.WriteLine(filePath + " - ERROR");
-                }         
+                }
 
                 }
-                var bslFile = filePath.Replace("bin", "bsl");
-                DecompileFile(filteredFile, bslFile);
+
+
 
             else
             {

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Elisy.MdInternals;
+using Decoder;
 using System.Runtime.Remoting.Messaging;
 using System.Text.RegularExpressions;
 
@@ -12,60 +13,47 @@ namespace Decoder
 { 
 internal class Program
 {
-    private static void Main(string[] args)
-    {
-
-        var fileMask = @"Module.bin";
-        var fileArray = ExpandFilePaths(args, fileMask);
-
-        foreach (var filePath in fileArray)
+        private static void Main(string[] args)
         {
-            Console.WriteLine(filePath);
 
-            var filteredFile = filePath.Replace("bin", "txt");
-            var content = string.Empty;
-            var reader = new StreamReader(filePath);
-            content = reader.ReadToEnd();
-            reader.Close();
+            var fileMask = @"Module.bin";
+            var fileArray = ExpandFilePaths(args, fileMask);
 
-             
-
-            string MatchPhrase = @"{1.*\n^{.Cmd.*$\n^{\d*,\d*},[\s|.|\S]+}.*$\n}.*$\n}";
-            Match match = Regex.Match(content, MatchPhrase, RegexOptions.Multiline);
-            if (match.Success)
+            foreach (var filePath in fileArray)
             {
-                content = match.Value;
-                
-                var writer = new StreamWriter(filteredFile);
-                writer.Write(content);
-                writer.Close();
 
+                BinFile binFile = new BinFile();
+                binFile.filePath = filePath;
+                binFile.ReadFile(binFile);
+                var filteredFile = binFile.CreateFilteredFile();
+
+
+                Console.WriteLine(filePath);
                 try
                 {
-                   
-                    Console.WriteLine(filePath + " - Done");
                     var bslFile = filePath.Replace("bin", "bsl");
-
                     DecompileFile(filteredFile, bslFile);
-                    }
+
+
+                    var reader = new StreamReader(bslFile);
+                    var content = reader.ReadToEnd();
+                    reader.Close();
+                    content = Regex.Replace(content, @"[\r\n|\n]{2,}", "\r\n", RegexOptions.Multiline);
+                    content = Regex.Replace(content, @"\nПроцедура", "\n\nПроцедура", RegexOptions.Multiline);
+                    content = Regex.Replace(content, @"\nФункция", "\n\nФункция", RegexOptions.Multiline);
+
+                    var writer = new StreamWriter(bslFile);
+                    writer.Write(content);
+                    writer.Close();
+
+                }
                 catch
                 {
                     Console.WriteLine(filePath + " - ERROR");
                 }
 
-                }
-
-
-
-            else
-            {
-                Console.WriteLine(filePath + " - False");
             }
-
-
-            }
-
-    }
+        }
 
     public static string[] ExpandFilePaths(string[] args, string filePart)
     {

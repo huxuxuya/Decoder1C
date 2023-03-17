@@ -13,3 +13,7 @@ D:\Projects\C\Decoder\Decoder\Decoder\bin\Debug\Elisy.MdInternals.pdb
 D:\Projects\C\Decoder\Decoder\Decoder\obj\Debug\Decoder.csproj.CopyComplete
 D:\Projects\C\Decoder\Decoder\Decoder\bin\Debug\Elisy.CfProject.dll
 D:\Projects\C\Decoder\Decoder\Decoder\bin\Debug\Elisy.CfProject.pdb
+D:\Projects\C\Decoder\Decoder\Decoder\bin\Debug\Decoder.exe.manifest
+D:\Projects\C\Decoder\Decoder\Decoder\bin\Debug\Decoder.application
+D:\Projects\C\Decoder\Decoder\Decoder\obj\Debug\Decoder.exe.manifest
+D:\Projects\C\Decoder\Decoder\Decoder\obj\Debug\Decoder.application

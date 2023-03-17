@@ -18,6 +18,8 @@ internal class Program
 
             var fileMask = @"Module.bin";
             var fileArray = ExpandFilePaths(args, fileMask);
+            var DeleteBin = true;
+            var DeleteTxt = true;
 
             foreach (var filePath in fileArray)
             {
@@ -25,16 +27,18 @@ internal class Program
                 BinFile binFile = new BinFile();
                 binFile.filePath = filePath;
                 binFile.ReadFile(binFile);
-                var filteredFile = binFile.CreateFilteredFile();
+                binFile.CreateFilteredFile(binFile);
 
 
                 Console.WriteLine(filePath);
                 try
                 {
                     var bslFile = filePath.Replace("bin", "bsl");
-                    DecompileFile(filteredFile, bslFile);
+                    DecompileFile(binFile.filteredFilePath, bslFile);
 
-
+                    if (DeleteBin == true) { System.IO.File.Delete(binFile.filePath); }
+                    if (DeleteTxt == true) { System.IO.File.Delete(binFile.filteredFilePath); }
+ 
                     var reader = new StreamReader(bslFile);
                     var content = reader.ReadToEnd();
                     reader.Close();

@@ -10,6 +10,7 @@ namespace Decoder
         public string content { get; set; }
         public string filteredContent { get; set; }
         public string filePath { get; set; }
+        public string filteredFilePath { get; set; }
 
         public void ReadFile(BinFile _m)
         {
@@ -29,15 +30,13 @@ namespace Decoder
             }
         }
 
-        public string CreateFilteredFile()
+        public void CreateFilteredFile(BinFile _m)
         {
-            var filteredFile = filePath.Replace("bin", "txt"); 
-            var writer = new StreamWriter(filteredFile);
+            _m.filteredFilePath = filePath.Replace("bin", "txt"); 
+            var writer = new StreamWriter(_m.filteredFilePath);
 
             writer.Write(content);
             writer.Close();
-
-            return filteredFile;
 
         }
     }

@@ -15,8 +15,8 @@ internal class Program
     private static void Main(string[] args)
     {
 
-
-        var fileArray = ExpandFilePaths(args);
+        var fileMask = @"Module.bin";
+        var fileArray = ExpandFilePaths(args, fileMask);
 
         foreach (var filePath in fileArray)
         {
@@ -67,7 +67,7 @@ internal class Program
 
     }
 
-    public static string[] ExpandFilePaths(string[] args)
+    public static string[] ExpandFilePaths(string[] args, string filePart)
     {
         var fileList = new List<string>();
 
@@ -79,7 +79,7 @@ internal class Program
             if (dirPart.Length == 0)
                 dirPart = ".";
 
-            var filePart = Path.GetFileName(substitutedArg);
+            //var filePart = Path.GetFileName(substitutedArg);
 
             foreach (var filepath in Directory.GetFiles(dirPart, filePart, SearchOption.AllDirectories))
                 fileList.Add(filepath);

@@ -19,7 +19,7 @@ internal class Program
 
             var fileMask = @"Module.bin";
             var fileArray = ExpandFilePaths(args, fileMask);
-            var DeleteBin = true;
+            var DeleteBin = false;
             var DeleteTxt = true;
 
             foreach (var filePath in fileArray)
@@ -43,7 +43,7 @@ internal class Program
                     var reader = new StreamReader(bslFile);
                     var content = reader.ReadToEnd();
                     reader.Close();
-                    content = Regex.Replace(content, @"[\r\n|\n]{2,}", "\r\n", RegexOptions.Multiline);
+                    content = Regex.Replace(content, @"[\r\n\n]{2,}", "\r\n", RegexOptions.Multiline);
                     content = Regex.Replace(content, @"\nПроцедура", "\n\nПроцедура", RegexOptions.Multiline);
                     content = Regex.Replace(content, @"\nФункция", "\n\nФункция", RegexOptions.Multiline);
 

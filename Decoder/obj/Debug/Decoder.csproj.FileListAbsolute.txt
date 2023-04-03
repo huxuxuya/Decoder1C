@@ -6,14 +6,10 @@ D:\Projects\C\Decoder\Decoder\Decoder\obj\Debug\Decoder.csproj.SuggestedBindingR
 D:\Projects\C\Decoder\Decoder\Decoder\obj\Debug\Decoder.csproj.CoreCompileInputs.cache
 D:\Projects\C\Decoder\Decoder\Decoder\obj\Debug\Decoder.exe
 D:\Projects\C\Decoder\Decoder\Decoder\obj\Debug\Decoder.pdb
-D:\Projects\C\Decoder\Decoder\Decoder\bin\Debug\Elisy.MdInternals.Cil.dll
-D:\Projects\C\Decoder\Decoder\Decoder\bin\Debug\Elisy.MdInternals.dll
-D:\Projects\C\Decoder\Decoder\Decoder\bin\Debug\Elisy.MdInternals.Cil.pdb
-D:\Projects\C\Decoder\Decoder\Decoder\bin\Debug\Elisy.MdInternals.pdb
 D:\Projects\C\Decoder\Decoder\Decoder\obj\Debug\Decoder.csproj.CopyComplete
-D:\Projects\C\Decoder\Decoder\Decoder\bin\Debug\Elisy.CfProject.dll
-D:\Projects\C\Decoder\Decoder\Decoder\bin\Debug\Elisy.CfProject.pdb
 D:\Projects\C\Decoder\Decoder\Decoder\bin\Debug\Decoder.exe.manifest
 D:\Projects\C\Decoder\Decoder\Decoder\bin\Debug\Decoder.application
 D:\Projects\C\Decoder\Decoder\Decoder\obj\Debug\Decoder.exe.manifest
 D:\Projects\C\Decoder\Decoder\Decoder\obj\Debug\Decoder.application
+D:\Projects\C\Decoder\Decoder\Decoder\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\Projects\C\Decoder\Decoder\Decoder\obj\Debug\Decoder.csproj.Fody.CopyLocal.cache

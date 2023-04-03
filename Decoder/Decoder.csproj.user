@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>D:\Projects\1C_fortis\uat_2_support\step_down\</StartArguments>
+    <StartArguments>D:\Projects\1C_fortis\uat_2_support\2.2.24.1\CommonModules\слкМенеджерЗащиты\Ext\</StartArguments>
   </PropertyGroup>
   <PropertyGroup>
     <PublishUrlHistory>D:\Projects\C\Publish\</PublishUrlHistory>
@@ -12,5 +12,12 @@
     <ErrorReportUrlHistory />
     <FallbackCulture>ru-RU</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <StartArguments>D:\Projects\1C_fortis\uat_2_support\2.2.24.1\CommonModules\слкМенеджерЗащиты\Ext\</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
   </PropertyGroup>
 </Project>
